@@ -1,0 +1,65 @@
+<?php
+namespace X5\TestBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * X5\TestBundle\Entity\Product
+ *
+ * @ORM\Table(name="product")
+ * @ORM\Entity
+ */
+class Product
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $title
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var text $announce
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer $price
+     *
+     * @ORM\Column(name="price", type="integer", nullable=true)
+     */
+    private $price;
+
+    /**
+     * @var ProductCategory
+     *
+     * @ORM\ManyToOne(targetEntity="ProductCategory")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_category_id", referencedColumnName="id")
+     * })
+     */
+    private $productCategory;
+    
+    /**
+     * Is used for status of sector - 0 = active / 1 delete
+     * @var boolean
+     * @ORM\Column(name="is_delete", type="boolean")
+     */
+    private $isDelete;
+
+     /**
+     * Creation date
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $created_date;
+}

@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>ProductCategory list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Created_date</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('category_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.title }}</td>
+                <td>{% if entity.createddate %}{{ entity.createddate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td><a href="{{ path('category_show', { 'id': entity.id }) }}" class="btn btn-success">show</a></td>
+                <td><a href="{{ path('category_edit', { 'id': entity.id }) }}" class="btn btn-warning">edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     <a href="{{ path('category_new') }}" class="btn btn-default btn-lg active" role="button">Create a new entry</a>
+    {% endblock %}

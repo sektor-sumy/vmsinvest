@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Category list</h1>
+
+   <ul class="list-group">
+        {% for entity in entities %}
+        	<li class="list-group-item"><a href="{{ path('x5_homepage_list', { 'id': entity.id }) }}">{{ entity.title }}</a></li>
+        {% endfor %}
+	</ul>
+    {% endblock %}

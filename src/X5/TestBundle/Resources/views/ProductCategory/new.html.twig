@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>ProductCategory creation</h1>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+	    <div class="form-group">
+	        {{ form_label(form.title) }}
+	        {{ form_errors(form.title) }}
+	        {{ form_widget(form.title) }}
+	    </div>
+	{{ form_end(form) }}
+        <a href="{{ path('category') }}" class="btn btn-link">
+            Back to the list
+        </a>
+{% endblock %}

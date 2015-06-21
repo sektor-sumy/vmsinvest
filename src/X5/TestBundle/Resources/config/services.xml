@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="x5.test.admin.product" class="X5\TestBundle\Admin\ProductAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Товары" label="Продукты"/>
+            <argument/>
+            <argument>X5\TestBundle\Entity\Product</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+        <service id="x5.test.admin.productCategory" class="X5\TestBundle\Admin\ProductCategoryAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Товары" label="Категории"/>
+            <argument/>
+            <argument>X5\TestBundle\Entity\ProductCategory</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+    </services>
+</container>

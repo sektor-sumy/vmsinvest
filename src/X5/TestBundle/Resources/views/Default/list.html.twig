@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Product list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.title }}</td>
+                <td><a href="{{ path('x5_homepage_show', { 'id': entity.id }) }}" class="btn btn-success">show</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}

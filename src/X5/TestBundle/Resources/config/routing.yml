@@ -1,0 +1,9 @@
+x5_test_homepage:
+    resource: "@X5TestBundle/Controller/DefaultController.php"
+    type:     annotation
+x5_test_category:
+	resource: "@X5TestBundle/Controller/ProductCategoryController.php"
+    type:     annotation
+x5_test_product:
+	resource: "@X5TestBundle/Controller/ProductController.php"
+    type:     annotation
